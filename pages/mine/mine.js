@@ -9,7 +9,7 @@ Page({
       var me = this;
       var serverUrl = app.serverUrl;
 
-      var user = app.userInfo;
+    var user = app.getGlobalUserInfo();
       wx.request({
             url: serverUrl+'/user/query?userId='+user.id,
             method : "POST",
@@ -38,7 +38,7 @@ Page({
           })
   },
   logout: function() {
-    var user = app.userInfo;
+    var user = app.getGlobalUserInfo();;
     var serverUrl = app.serverUrl;
     wx.showLoading({
       title: '请等待',
@@ -59,7 +59,9 @@ Page({
             icon: 'success',
             duration: 2000
           });
-           app.userInfo = null;
+           //app.userInfo = null;
+           //注销清空缓存
+           wx.removeStorageSync("userInfo");
            wx.redirectTo({
              url: '../userLogin/login',
            });
@@ -82,8 +84,9 @@ Page({
           title: '上传中',
         })
         var serverUrl = app.serverUrl;
+        var userInfo = app.getGlobalUserInfo();
         wx.uploadFile({
-          url: serverUrl+'/user/uploadFace?userId='+app.userInfo.id, 
+          url: serverUrl+'/user/uploadFace?userId='+userInfo.id, 
           filePath: tempFilePaths[0],
           name: 'file',
           header: {

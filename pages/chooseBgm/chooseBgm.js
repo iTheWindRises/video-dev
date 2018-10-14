@@ -52,14 +52,18 @@ Page({
       var tmptempFilePath = me.data.videoParams.tmptempFilePath;
       var tmpthumbTempFilePath = me.data.videoParams.tmpthumbTempFilePath;
 
+      
+      //上传短视频
       wx.showLoading({
         title: '请等待',
       })
-      //上传短视频
+
+      var userInfo = app.getGlobalUserInfo();
+      
       wx.uploadFile({
         url: serverUrl + '/video/upload',
         formData: {
-          userId:app.userInfo.id,
+          userId:userInfo.id, 
           bgmId: bgmId,
           videoSeconds: duration,
             videoWidth: tmpwidth,

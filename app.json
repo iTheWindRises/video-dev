@@ -1,13 +1,14 @@
 {
   
   "pages":[
+    "pages/videoinfo/videoinfo",
+        "pages/userLogin/login",
+   
     "pages/index/index",
-    "pages/userLogin/login",
-  
-    
     "pages/chooseBgm/chooseBgm",
     "pages/mine/mine",
-    "pages/userRegist/regist"
+    "pages/userRegist/regist",
+    "pages/searchVideo/searchVideo"
   ],
   "window":{
     "backgroundTextStyle":"light",
