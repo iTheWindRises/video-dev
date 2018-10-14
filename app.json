@@ -1,12 +1,19 @@
 {
+  
   "pages":[
-    "pages/userRegist/regist",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/userLogin/login",
+  
+    
+    "pages/chooseBgm/chooseBgm",
+    "pages/mine/mine",
+    "pages/userRegist/regist"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "去你的小视频",
     "navigationBarTextStyle":"black"
-  }
+  },
+  "dubug":true
 }

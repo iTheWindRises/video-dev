@@ -9,7 +9,7 @@ Page({
       ],
     },
 
-    doRegist: function(e) {
+    doLogin: function(e) {
       var formObj = e.detail.value;
       var username = formObj.username;
       var password = formObj.password;
@@ -25,9 +25,9 @@ Page({
         var serverUrl = app.serverUrl;
         wx.showLoading({
           title: '请等待',
-        });
+        })
         wx.request({
-          url: serverUrl+'/regist',
+          url: serverUrl+'/login',
           method : "POST",
           data:{
             username: username,
@@ -41,9 +41,9 @@ Page({
             var status = res.data.status;
             if(status == 200) {
               wx.showToast({
-                title: "用户注册成功",
-                icon: 'none',
-                duration: 3000
+                title: "登录成功",
+                icon: 'success',
+                duration: 2000
               });
               app.userInfo = res.data.data;
 
@@ -61,10 +61,10 @@ Page({
         })
       }
     },
-  goLoginPage: function () {
-    wx.redirectTo({
-      url: '../userLogin/login'
-    })
+  goRegistPage:function() {
+      wx.redirectTo({
+        url:'../userRegist/regist'
+      })
   }
 
 })
